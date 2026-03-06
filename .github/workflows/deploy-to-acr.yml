@@ -35,13 +35,13 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/mk7ts6jo7jwascosureg:latest \
-            -t ${{ secrets.ACR_LOGIN_SERVER }}/your-app:${{ github.sha }} \
+            -t ${{ secrets.ACR_LOGIN_SERVER }}/mk7ts6jo7jwascosureg:${{ github.sha }} \
             ./src
 
       - name: Push Docker image to ACR
         run: |
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/your-app:latest
-          docker push ${{ secrets.ACR_LOGIN_SERVER }}/your-app:${{ github.sha }}
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/mk7ts6jo7jwascosureg:latest
+          docker push ${{ secrets.ACR_LOGIN_SERVER }}/mk7ts6jo7jwascosureg:${{ github.sha }}
 
       - name: Cleanup .env file
         if: always()
