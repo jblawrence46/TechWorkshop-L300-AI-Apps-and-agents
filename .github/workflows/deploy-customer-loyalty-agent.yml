@@ -40,6 +40,11 @@ jobs:
           # Safety net in case your requirements.txt doesn't include it yet:
           pip show azure-ai-projects >/dev/null 2>&1 || pip install azure-ai-projects
 
+          
+      - name: Load ENV secret into environment
+        run: |
+          echo "${{ secrets.ENV }}" >> $GITHUB_ENV
+
       - name: Run Customer Loyalty Agent initializer
         env:
           # azure-ai-projects commonly needs a Foundry Project endpoint URL (set as a GitHub Secret) [2](https://pypi.org/project/azure-ai-projects/)
