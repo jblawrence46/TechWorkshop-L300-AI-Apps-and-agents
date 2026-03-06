@@ -34,7 +34,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/your-app:latest \
+          docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/mk7ts6jo7jwascosureg:latest \
             -t ${{ secrets.ACR_LOGIN_SERVER }}/your-app:${{ github.sha }} \
             ./src
 
